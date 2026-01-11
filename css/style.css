@@ -44,8 +44,12 @@ nav {
 }
 
 .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le badge et les titres horizontalement */
+    text-align: center;
     max-width: 850px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centre le conteneur lui-même */
 }
 
 .badge-tech {
@@ -218,6 +222,26 @@ nav {
 
     .hero-blog h1 {
         font-size: 2.2rem; /* Titre plus petit sur mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .badge-tech {
+        padding: 6px 15px;      /* On réduit légèrement le padding */
+        font-size: 0.75rem;     /* On diminue la taille de la police */
+        letter-spacing: 1px;    /* On resserre un peu les lettres */
+        margin-bottom: 1rem;
+        display: inline-flex;   /* Assure un meilleur centrage sur petit écran */
+        align-items: center;
+        max-width: 90%;         /* Évite que le badge ne touche les bords de l'écran */
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 480px) {
+    .badge-tech {
+        font-size: 0.7rem;      /* Encore plus petit pour les très petits écrans (iPhone SE, etc.) */
+        padding: 5px 12px;
     }
 }
 .category-badge { color: var(--primary); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
