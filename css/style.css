@@ -1,0 +1,234 @@
+:root {
+    --primary: #10b981;
+    --accent: #34d399;
+    --bg-dark: #022c22;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text-main: #ecfdf5;
+    --text-muted: #a7f3d0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: radial-gradient(circle at top, #064e3b, var(--bg-dark));
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px; /* Augmenté pour laisser respirer les 3 colonnes */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+nav {
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: var(--glass);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Hero Section Centrée - Style Cyber-Eco */
+.hero-blog {
+    padding: 6rem 0 4rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.badge-tech {
+    background: rgba(16, 185, 129, 0.1); /* Vert émeraude transparent */
+    color: var(--primary); /* #10b981 */
+    border: 1px solid var(--primary);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-blog h1 {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin: 1.5rem 0;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.text-highlight {
+    color: var(--primary);
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--text-main); /* #ecfdf5 */
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.secondary-text {
+    font-size: 1.05rem;
+    color: var(--text-muted); /* #a7f3d0 */
+    margin-top: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Bulles de Statistiques Émeraude */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-bubble {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    min-width: 160px;
+    transition: 0.3s ease;
+}
+
+.stat-bubble:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.stat-bubble strong {
+    display: block;
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.stat-bubble span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-blog h1 { font-size: 2.5rem; }
+    .hero-stats { flex-direction: column; align-items: center; gap: 1.5rem; }
+    .stat-bubble { width: 100%; max-width: 300px; }
+}
+
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+.logo span { color: var(--primary); }
+
+/* Filtres */
+#filter-bar {
+    display: flex;
+    gap: 10px;
+    margin: 3rem 0;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+#filter-bar::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 8px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+.filter-btn.active { background: var(--primary); color: var(--bg-dark); font-weight: bold; }
+
+/* --- SECTION FLUX D'ARTICLES (GRILLE 3 COLONNES) --- */
+
+/* 1. Le conteneur qui contient toutes les cartes */
+#post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Force 3 colonnes égales */
+    gap: 25px;                            /* Espace entre les cartes */
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+/* 2. La carte individuelle ajustée pour la grille */
+.post-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3.8rem;
+    display: flex;
+    flex-direction: column; /* Aligne le contenu verticalement */
+    height: 100%;           /* Toutes les cartes auront la même hauteur */
+    transition: 0.3s ease;
+}
+
+/* 3. Ajustement du texte à l'intérieur des cartes */
+.post-card h2 {
+    font-size: 1.75rem; /* Un peu plus petit pour tenir sur 3 colonnes */
+    margin: 1rem 0;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
+.post-card p {
+    font-size: 1.15rem;
+    color: #ffffff;
+    flex-grow: 1;       /* Force le texte à prendre l'espace pour pousser le bouton en bas */
+    margin-bottom: 1.5rem;
+}
+
+/* --- 4. RESPONSIVE (Indispensable) --- */
+
+/* Pour les tablettes (ex: iPad) : on passe à 2 colonnes */
+@media (max-width: 1024px) {
+    #post-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Pour les mobiles (iPhone/Android) : on passe à 1 seule colonne */
+@media (max-width: 650px) {
+    #post-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-blog h1 {
+        font-size: 2.2rem; /* Titre plus petit sur mobile */
+    }
+}
+.category-badge { color: var(--primary); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
+.read-more { color: var(--primary); text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+
+/* WhatsApp Floating */
+.wa-float {
+    position: fixed; bottom: 30px; right: 30px;
+    background: #25d366; color: white; width: 60px; height: 60px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 1000; transition: 0.3s;
+}
+.wa-float:hover { transform: scale(1.1); }
