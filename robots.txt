@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Lien direct vers votre sitemap
+Sitemap: https://mathieutj.github.io/mon-blog-expert/sitemap.xml
